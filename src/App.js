@@ -4,13 +4,15 @@ import Home from './pages/home/Home';
 import { Outlet, RouterProvider, createBrowserRouter } from 'react-router-dom';
 import React from 'react';
 import Header from './compnent/header/Header';
+import Navbar from './compnent/navbar/Navbar';
+import Shop from './pages/shop/Shop';
 
 function App() {
   const Layout= ()=>{
     return (
       <div >
         <Header/>
-        {/* <Navbar/> */}
+        <Navbar/>
         <div style={{display:'flex'}}>
           {/* <Leftbar/> */}
           <Outlet/>
@@ -23,7 +25,17 @@ function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Layout/>
+      element: <Layout/>,
+      children:[
+        {
+          path:'/',
+          element:<Home/>,
+        },
+        {
+          path:'/shop',
+          element:<Shop/>,
+        },
+    ]
     },
     
   ]);
