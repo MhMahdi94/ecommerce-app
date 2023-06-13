@@ -1,0 +1,32 @@
+.header{
+    height: 93px;
+    background-color: #FFFFFF;
+    display: flex;  
+    align-items: center;
+    justify-content: space-between;
+    padding:25px 94px;
+    .left{
+        span{
+            font-size: 39px;
+            font-weight: 700;
+            color: #F86338;
+        }
+    }
+    .right{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 34px;
+        color: #11142D;
+        .item{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            span{
+                font-size: 16px;
+                font-weight: 500;
+                cursor: pointer;    
+            }
+        }
+    }
+}
