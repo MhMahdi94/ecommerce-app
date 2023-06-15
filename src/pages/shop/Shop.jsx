@@ -42,21 +42,9 @@ const Shop = () => {
   ];
 
   const [fakeProducts, setfakeProducts] = useState([]);
+  const [filteredProducts, setfilteredProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-  //fet products
-  // async function getproducts() {
-  //   try {
-  //     const response = await axios.get('https://fakestoreapi.com/products');
-      
-  //     //console.log(response.data);
-  //     setfakeProducts(response.data);
-  //     setLoading(false);
-  //     // console.log('fake: '+fakeProducts);
-  //   } catch (error) {
-  //     setLoading(false);
-  //     console.error(error);
-  //   }
-  // }
+  const [searching, setSearching] = useState(false);
 
   const getproducts= async()=>{
     // try{
@@ -68,6 +56,25 @@ const Shop = () => {
 
     // }
   }
+
+  const handleSearch= (e)=>{
+    console.log('change: '+e.target.value);
+    if(e.target.value.length===0){
+      setSearching(false);
+    }else{
+      setSearching(true);
+      const query = e.target.value;
+      var updatedList = [...fakeProducts];
+  // Include all elements which includes the search query
+      updatedList = fakeProducts.filter(item => 
+         item.title.indexOf(query) !== -1
+      );
+      console.log(query);
+  // Trigger render with updated values
+      setfilteredProducts(updatedList);
+    }
+  }
+
   useEffect(() => {
     getproducts();
   
@@ -84,7 +91,7 @@ const Shop = () => {
         <div className="products">
           <div className="left">
             <div className="search">
-              <input type="text" placeholder='Search Products'/>
+              <input type="text" placeholder='Search Products' onChange={handleSearch}/>
               <SearchOutlinedIcon className='icon'/>
             </div>
 
@@ -135,18 +142,32 @@ const Shop = () => {
           
           <div className="right">
             
-                {loading?<CircularProgress/>:fakeProducts.map(item=>
-                    <div className="item" key={fakeProducts.key}>
-                      <FavoriteBorderOutlinedIcon className='likeBtn' onClick={getproducts}/>
-                      <img src={item.image} alt="" />
-                      <span>{item.title}</span>
-                      <Rating
-                        value={item.rate}
-                      />  
-                      <p>{item.hint}</p>
-                      <span className="price">${item.price}</span>
-                    </div>
-                  )}
+                {loading?<CircularProgress/>:
+                  searching?filteredProducts.map(item=>
+                  <div className="item" key={fakeProducts.key}>
+                    <FavoriteBorderOutlinedIcon className='likeBtn' onClick={getproducts}/>
+                    <img src={item.image} alt="" />
+                    <span>{item.title}</span>
+                    <Rating
+                      value={item.rate}
+                    />  
+                    <p>{item.hint}</p>
+                    <span className="price">${item.price}</span>
+                  </div>
+                  ) :
+                  fakeProducts.map(item=>
+                      
+                      <div className="item" key={fakeProducts.key}>
+                        <FavoriteBorderOutlinedIcon className='likeBtn' onClick={getproducts}/>
+                        <img src={item.image} alt="" />
+                        <span>{item.title}</span>
+                        <Rating
+                          value={item.rate}
+                        />  
+                        <p>{item.hint}</p>
+                        <span className="price">${item.price}</span>
+                      </div>
+                    )}
           </div>
         </div>
 
