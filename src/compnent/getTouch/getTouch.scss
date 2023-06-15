@@ -1,0 +1,54 @@
+.getTouch{
+    padding: 200px 100px;
+    .container{
+        display: flex;
+        align-items: center;
+        gap: 50px;
+        .left{
+            flex: 1;
+            background-color:#E2E2EA;
+            width: 607px;
+            height: 720px;
+            background-image: url('../../assets/placeholder.png');
+            background-size: cover;
+        }
+
+        .right{
+            flex: 1;
+            width: 607px;
+            height: 720px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            .title{
+                width: 479px;
+                height: 116px;
+                align-self: flex-start;
+                span{
+                    font-size: 48px;
+                    font-weight: 700;
+                    color: #11142D;
+                }
+                margin-bottom: 32px;
+            }
+            
+
+            p{
+                font-size: 16px;
+                font-weight: 400;
+                color: #9A9AB0;
+                margin-bottom: 56px;
+            }
+
+            button{
+                background-color: transparent;
+                color: #F86338;
+                border: none;
+                font-size: 16px;
+                font-weight: 700;
+                align-self: flex-start;
+            }
+        }
+    }
+}
