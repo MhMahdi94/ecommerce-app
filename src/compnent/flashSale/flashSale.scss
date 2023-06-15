@@ -1,0 +1,91 @@
+.flashSale{
+    background-color: #FFFFFF;
+    height: 960px;
+    // padding: 108px 0 44x 0;
+    .container{
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        .head{
+            margin-top: 108px;
+            font-size: 48px;
+            font-weight: 700;
+            color: #11142D;
+        }
+        .desc{
+            padding: 0px 355px;
+            margin-top: 32px;
+            span{
+                color: #515151;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 20px;
+                text-align: center;
+                letter-spacing: 0.005em;
+                
+            }
+        }
+        .scrollList{
+           margin-top: 70px;
+           display: flex;
+           align-items: center;
+           gap: 20px;
+            .item{
+                width: 400px;
+                height: 450px;
+                background-color: #E2E2EA;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-end;
+                padding: 30px 0px;  
+                gap: 8px;   
+                .title{
+                    color: #11142D;
+                    font-size: 24px;
+                    font-weight: 700;
+                    line-height: 20px ;
+                }
+                .subtitle{
+                    color: #9A9AB0;
+                    font-weight: 400;
+                    font-size: 14px;
+                }
+
+                .prices{
+                    display: flex;
+                    gap: 8px;
+                    .new{
+                        color: #F86338;
+                        font-size: 16px;
+                        font-weight: 500;
+                        line-height: 20px;
+                    }
+                    .old{
+                        color: #9A9AB0;
+                        font-size: 16px;
+                        font-weight: 500;
+                        line-height: 20px;
+                    }
+                }
+
+                .sale{
+                    width: 46px;
+                    height: 22px;
+                    color: #F86338;
+                    background-color: #F6F7FB;
+                    text-align: center;
+                    border-radius: 6px;
+                    position: absolute;
+                    top: 10px;
+                    left: 10px;
+                }
+
+            }
+        }
+    }
+}
