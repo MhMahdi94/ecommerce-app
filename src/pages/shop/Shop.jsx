@@ -45,10 +45,24 @@ const Shop = () => {
   const [filteredProducts, setfilteredProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searching, setSearching] = useState(false);
+  const [sort, setsort] = useState(false);
 
   const getproducts= async()=>{
     // try{
+      setLoading(true);
       const resp=  await axios.get('https://fakestoreapi.com/products');
+      setfakeProducts(resp.data);
+      console.log(resp.data);
+      setLoading(false);
+    // }catch{
+
+    // }
+  }
+
+  const getproductsDesc= async()=>{
+    // try{
+      setLoading(true);
+      const resp=  await axios.get('https://fakestoreapi.com/products?sort=desc');
       setfakeProducts(resp.data);
       console.log(resp.data);
       setLoading(false);
@@ -75,6 +89,12 @@ const Shop = () => {
     }
   }
 
+  const handleFilter=()=>{
+    setsort(!sort);
+    sort? getproductsDesc():
+    getproducts()
+  }
+
   useEffect(() => {
     getproducts();
   
@@ -98,7 +118,7 @@ const Shop = () => {
             <div className="priceFilter">
               <div className="head">
                 <span>Price</span>
-                <FilterAltOutlinedIcon style={{width:'30px', height:'30px' }}/>
+                <FilterAltOutlinedIcon style={{width:'30px', height:'30px' }} onClick={handleFilter}/>
               </div>
               <hr/>
               <div className="tail">
