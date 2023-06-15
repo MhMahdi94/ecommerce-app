@@ -1,8 +1,13 @@
-import React from 'react'
+import Hero from '../../compnent/hero/Hero'
+import Prime from '../../compnent/prime/Prime'
+import './home.scss'
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <div className='home'>
+       <Hero/>
+       <Prime/>
+    </div>
   )
 }
 

@@ -10,7 +10,7 @@ import Shop from './pages/shop/Shop';
 function App() {
   const Layout= ()=>{
     return (
-      <div >
+      <div style={{height:'100vh'}}>
         <Header/>
         <Navbar/>
         <div style={{display:'flex'}}>

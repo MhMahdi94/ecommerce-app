@@ -1,0 +1,50 @@
+.hero{
+    width: 100%;
+    
+    .container{
+    display: flex;
+    align-items: center;
+    justify-content: stretch;
+    height: 640px;
+    background-color: #FFFFFF;
+    background-image: url('../../assets/mask_group.png') ;
+    background-size: cover;
+    position: relative;
+    .header{
+        font-size: 64px;
+        font-weight: 700;
+        position: absolute;
+        top: 135px;
+        right: 119px;
+        left: 728px;
+        bottom: 351px;
+        background-color: transparent;
+    }
+    .desc{
+        position: absolute;
+        top: 321px;
+        bottom: 279px;
+        right: 100px;
+        left: 728px;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 20px;
+        letter-spacing: 0.5%;
+        margin: auto;
+        background-color: transparent;
+    }
+    button{
+        border: none;
+        padding: 18.5px 24px;
+        border-radius: 8px;
+        color: #FFFFFF;
+        background-color: #F86338;
+        position: absolute;
+        right: 556px;
+        top: 417px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 700;
+    }
+    }
+}
