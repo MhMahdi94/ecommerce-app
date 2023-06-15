@@ -1,5 +1,10 @@
+@import '../../style.scss';
 .home{
     width: 100%;
     background-color: #E5E5E5;
     padding:20px 100px;
+    @include mobile{
+        padding:0px;
+      }
+    
 }

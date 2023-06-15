@@ -1,6 +1,11 @@
+@import '../../style.scss';
+
 .footer{
     height: 476px;
     display: flex;
+    @include mobile{
+        flex-wrap: wrap;
+      }
     align-items: center;
     gap: 50px;
     width: 100%;

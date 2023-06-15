@@ -1,6 +1,11 @@
+@import '../../style.scss';
+
 .testimonial{
     margin-top: 200px;
     display: flex;
+    @include mobile{
+        flex-wrap: wrap;
+      }
     align-items: center;
     justify-content: center;
     background-color: white;
@@ -14,6 +19,9 @@
         .left{
             width: 320px;
             height: 320px;
+            @include mobile{
+                width: 100%;
+            }
             background-image: url('../../assets/placeholder.png');
             background-size: cover;
         }
