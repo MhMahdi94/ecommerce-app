@@ -5,7 +5,9 @@ import FilterAltOutlinedIcon from '@mui/icons-material/FilterAltOutlined';
 import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
 import placholder from '../../assets/placeholder.png';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
-import { Rating } from '@mui/material';
+import { CircularProgress, Rating } from '@mui/material';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 
 
@@ -38,6 +40,42 @@ const Shop = () => {
     {name:'Urbano Jacket',price:'$99',hint:'watchmenow',rate:5},
     {name:'Urbano Jacket',price:'$99',hint:'watchmenow',rate:5},
   ];
+
+  const [fakeProducts, setfakeProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  //fet products
+  // async function getproducts() {
+  //   try {
+  //     const response = await axios.get('https://fakestoreapi.com/products');
+      
+  //     //console.log(response.data);
+  //     setfakeProducts(response.data);
+  //     setLoading(false);
+  //     // console.log('fake: '+fakeProducts);
+  //   } catch (error) {
+  //     setLoading(false);
+  //     console.error(error);
+  //   }
+  // }
+
+  const getproducts= async()=>{
+    // try{
+      const resp=  await axios.get('https://fakestoreapi.com/products');
+      setfakeProducts(resp.data);
+      console.log(resp.data);
+      setLoading(false);
+    // }catch{
+
+    // }
+  }
+  useEffect(() => {
+    getproducts();
+  
+    // return () => {
+    //   second
+    // }
+  }, [])
+  
   return (
     <div className='shop'>
       <div className="container">
@@ -94,17 +132,19 @@ const Shop = () => {
             </div>
           
           </div>
+          
           <div className="right">
             
-                {items.map(item=>
-                    <div className="item">
-                      <FavoriteBorderOutlinedIcon className='likeBtn'/>
-                      <span>{item.name}</span>
+                {loading?<CircularProgress/>:fakeProducts.map(item=>
+                    <div className="item" key={fakeProducts.key}>
+                      <FavoriteBorderOutlinedIcon className='likeBtn' onClick={getproducts}/>
+                      <img src={item.image} alt="" />
+                      <span>{item.title}</span>
                       <Rating
                         value={item.rate}
                       />  
                       <p>{item.hint}</p>
-                      <span className="price">{item.price}</span>
+                      <span className="price">${item.price}</span>
                     </div>
                   )}
           </div>
