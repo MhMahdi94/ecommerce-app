@@ -6,6 +6,7 @@ import React from 'react';
 import Header from './compnent/header/Header';
 import Navbar from './compnent/navbar/Navbar';
 import Shop from './pages/shop/Shop';
+import Footer from './compnent/footer/Footer';
 
 function App() {
   const Layout= ()=>{
@@ -18,6 +19,8 @@ function App() {
           <Outlet/>
           {/* <Rightbar/> */}
         </div>
+
+        <Footer/>
       </div>
     )
   }
